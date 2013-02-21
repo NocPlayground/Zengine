@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<script src="js/zengine.js"></script>
+	</head>
+	<body>
+		<canvas id="canvas" width="320" height="480"></canvas>
+		
+		<script>
+			var zengine = new Zengine("#canvas");
+			zengine.run( function (dt) {
+					var cycleTime = 1000;
+					var color = (zengine.now % cycleTime) / cycleTime * 255 | 0;
+					z.fillStyle = 'rgb(' + color + ',' + color + ',' + color + ')';
+					z.fillRect(0, 0, 300, 400);
+			});
+		</script>
+	</body>
+</html>
