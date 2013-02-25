@@ -23,7 +23,7 @@ Zengine.prototype = {
 			} else {
 				return this;
 			}
-		}else {
+		} else {
 			return this;
 		}
 	},
