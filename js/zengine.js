@@ -1,10 +1,9 @@
-var core_version = "@VERSION",
+var core_version = "0.0.1",
 	reqAnim = window.requestAnimationFrame || window.webkitRequestAnimationFrame,
 	_z = window.z,
 
 	Zengine = function (canvasID) {
 		this.init(canvasID);
-		
 	};
 
 Zengine.prototype = {
@@ -23,12 +22,11 @@ Zengine.prototype = {
 			} else {
 				return this;
 			}
-		} else {
+		}else {
 			return this;
 		}
 	},
 	run: function( callback ) {
-
 		var frame = function () {
 			var time = Date.now();
 			var dt = time - Zengine.prototype._time;

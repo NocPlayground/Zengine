@@ -2,21 +2,31 @@
 
 <html>
 	<head>
-		<script data-main="js/root.js" src="js/lib/require.js"></script>
+		<script src="src/zengine.js"></script>
+		<script src="src/vector2D.js"></script>
+		<script src="src/entity.js"></script>
+		<script src="src/world.js"></script>
 	</head>
 	<body>
-		<canvas id="canvas" width="320" height="480"></canvas>
+		<canvas id="canvas" width="500" height="500"></canvas>
 		
 		<script>
-			// var zengine = new Zengine("#canvas");
-			// zengine.run( function (dt) {
-			// 		var cycleTime = 1000;
-			// 		var color = (zengine.now % cycleTime) / cycleTime * 255 | 0;
-			// 		z.fillStyle = 'rgb(' + color + ',' + color + ',' + color + ')';
-			// 		z.fillRect(0, 0, 300, 400);
-			// });
-			//var root = new Root("#canvas");
-			// root.startRendering();
+			var zengine = new Zengine("#canvas");
+			zengine.run( function (dt) {
+					z.clearRect(0, 0, 320, 480);
+					
+					z.fillStyle = 'white';
+					z.fillRect(0, 0, 320, 480);
+					//var image = new Image();
+					//image.src = "images/1.png";
+					//z.drawImage(image, 10, 0, 20, 20, 10, 30, 20, 20);
+					//
+					//z.fillText("Hello", 10, 10);
+					var e = new Entity("test");
+					e.setPosition(new Vector2D(10, 10));
+					e.setResource("Rect", 'rgb(200,200,255)', 100, 100 );
+					e.render();
+			});
 		</script>
 	</body>
 </html>
