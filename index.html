@@ -2,31 +2,42 @@
 
 <html>
 	<head>
-		<script src="src/zengine.js"></script>
-		<script src="src/vector2D.js"></script>
-		<script src="src/entity.js"></script>
-		<script src="src/world.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+		<script src="js/zengine.js"></script>
 	</head>
 	<body>
 		<canvas id="canvas" width="500" height="500"></canvas>
-		
+
 		<script>
-			var zengine = new Zengine("#canvas");
-			zengine.run( function (dt) {
-					z.clearRect(0, 0, 320, 480);
-					
-					z.fillStyle = 'white';
-					z.fillRect(0, 0, 320, 480);
-					//var image = new Image();
-					//image.src = "images/1.png";
-					//z.drawImage(image, 10, 0, 20, 20, 10, 30, 20, 20);
-					//
-					//z.fillText("Hello", 10, 10);
-					var e = new Entity("test");
-					e.setPosition(new Vector2D(10, 10));
+			$(document).click( function (e) {
+				alert(e.clientX);
+			});
+			var lay1run = function () {
+				var e = new Entity("test");
+					e.setPosition(new Point(10, 10));
 					e.setResource("Rect", 'rgb(200,200,255)', 100, 100 );
 					e.render();
+			} 
+
+			var lay2run = function () {
+				var e = new Entity("test");
+					e.setPosition(new Point(15, 15));
+					e.setResource("Rect", 'rgb(200,255,200)', 100, 100 );
+					e.render();
+			}
+			var zengine = new Zengine("#canvas");
+			zengine.run( function (dt) {
+					zengine.context.clearRect(0, 0, 320, 480);
+					
+					z.fillStyle = 'rgb(245,245,245)';
+					z.fillRect(0, 0, 320, 480);
+
+					
+					lay2run();
+					lay1run();
 			});
+
+			
 		</script>
 	</body>
 </html>
